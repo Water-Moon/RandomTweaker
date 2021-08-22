@@ -18,7 +18,7 @@ import ink.ikx.rt.api.mods.jei.interfaces.other.JEIRecipe;
 import ink.ikx.rt.api.mods.player.IPlayerExpansionFTBU;
 import ink.ikx.rt.impl.botania.module.SubTileOrechidManager;
 import ink.ikx.rt.impl.botania.subtitle.SubTileHydroangeasModified;
-import ink.ikx.rt.impl.botania.subtitle.SubTileOrechidModifyed;
+import ink.ikx.rt.impl.botania.subtitle.SubTileOrechidModified;
 import ink.ikx.rt.impl.client.capability.PlayerSanityCapabilityHandler;
 import ink.ikx.rt.impl.client.network.PlayerSanityNetWork;
 import ink.ikx.rt.impl.config.RTConfig;
@@ -54,17 +54,17 @@ import java.util.*;
 
 @SuppressWarnings("all")
 @Mod(
-    modid = RandomTweaker.MODID,
-    name = RandomTweaker.NAME,
-    version = RandomTweaker.VERSION,
-    guiFactory = RandomTweaker.GUI_FACTORY,
-    dependencies = RandomTweaker.DESPENDENCIES
+        modid = RandomTweaker.MODID,
+        name = RandomTweaker.NAME,
+        version = RandomTweaker.VERSION,
+        guiFactory = RandomTweaker.GUI_FACTORY,
+        dependencies = RandomTweaker.DESPENDENCIES
 )
 public class RandomTweaker {
 
     public static final String MODID = "randomtweaker";
     public static final String NAME = "RandomTweaker";
-    public static final String VERSION = "1.1.4";
+    public static final String VERSION = "1.1.7";
     public static final String GUI_FACTORY = "ink.ikx.rt.impl.config.RTConfigGuiFactory";
     public static final String DESPENDENCIES = "required-after:crafttweaker;after:contenttweaker";
 
@@ -131,7 +131,7 @@ public class RandomTweaker {
                 }
                 if (RTConfig.Botania.OrechidModified) {
                     JEI.hideCategory("botania.orechid");
-                    subTiles.forcePut(LibBlockNames.SUBTILE_ORECHID, SubTileOrechidModifyed.class);
+                    subTiles.forcePut(LibBlockNames.SUBTILE_ORECHID, SubTileOrechidModified.class);
                     OrechidJEI.init();
                 }
             }
