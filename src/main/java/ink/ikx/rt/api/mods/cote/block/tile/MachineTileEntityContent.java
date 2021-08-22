@@ -18,15 +18,16 @@ import javax.annotation.Nonnull;
 @ZenRegister
 @ModOnly("contenttweaker")
 @ZenClass("mods.randomtweaker.cote.TileEntityInGame")
-public class TileEntityContent extends TileEntity implements ITickable {
+public class MachineTileEntityContent extends TileEntity implements ITickable {
 
-    public static final String TAG_CUSTOM_DATA = "CustomData";
-    private static final String TAG_ID = "TileID";
+    private String machineName;
     private final TileData customData = new TileData();
-    private String id;
 
-    public TileEntityContent(String id) {
-        this.id = id;
+    public static final String TAG_CUSTOM_NAME = "CustomName";
+    public static final String TAG_CUSTOM_DATA = "CustomData";
+
+    public MachineTileEntityContent(String machineName) {
+        this.machineName = machineName;
     }
 
     @Override
@@ -36,19 +37,19 @@ public class TileEntityContent extends TileEntity implements ITickable {
 
     @Override
     public void readFromNBT(@Nonnull NBTTagCompound compound) {
-        compound.setString(TAG_ID, id);
-        if (!compound.hasKey(TAG_CUSTOM_DATA)) {
-            compound.setTag(TAG_CUSTOM_DATA, new NBTTagCompound());
-        }
-        customData.writeToNBT(compound.getCompoundTag(TAG_CUSTOM_DATA));
+        customData.readFromNBT(compound.getCompoundTag(TAG_CUSTOM_DATA));
+        this.machineName = compound.getString(TAG_CUSTOM_NAME);
         super.readFromNBT(compound);
     }
 
     @Nonnull
     @Override
     public NBTTagCompound writeToNBT(@Nonnull NBTTagCompound compound) {
-        customData.readFromNBT(compound.getCompoundTag(TAG_CUSTOM_DATA));
-        this.id = compound.getString(TAG_ID);
+        compound.setString(TAG_CUSTOM_NAME, machineName);
+        if (!compound.hasKey(TAG_CUSTOM_DATA)) {
+            compound.setTag(TAG_CUSTOM_DATA, new NBTTagCompound());
+        }
+        customData.writeToNBT(compound.getCompoundTag(TAG_CUSTOM_DATA));
         return super.writeToNBT(compound);
     }
 

@@ -30,15 +30,6 @@ import ink.ikx.rt.impl.jei.OrechidJEI;
 import ink.ikx.rt.impl.proxy.IProxy;
 import ink.ikx.rt.impl.utils.ItemDs;
 import ink.ikx.rt.impl.utils.annotation.RTRegisterClass;
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
 import net.minecraft.init.Blocks;
 import net.minecraft.potion.PotionType;
 import net.minecraft.util.ResourceLocation;
@@ -56,6 +47,10 @@ import org.apache.logging.log4j.Logger;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.subtile.SubTileEntity;
 import vazkii.botania.common.lib.LibBlockNames;
+
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.*;
 
 @SuppressWarnings("all")
 @Mod(

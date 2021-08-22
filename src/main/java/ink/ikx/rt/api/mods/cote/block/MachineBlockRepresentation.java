@@ -5,7 +5,6 @@ import com.teamacronymcoders.contenttweaker.ContentTweaker;
 import com.teamacronymcoders.contenttweaker.modules.vanilla.blocks.BlockRepresentation;
 import crafttweaker.annotations.ModOnly;
 import crafttweaker.annotations.ZenRegister;
-import ink.ikx.rt.api.mods.cote.block.tile.TileEntityRepresentation;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenProperty;
 
@@ -15,7 +14,7 @@ import stanhebben.zenscript.annotations.ZenProperty;
 public class MachineBlockRepresentation extends BlockRepresentation {
 
     @ZenProperty
-    public TileEntityRepresentation tileEntity;
+    public String machineName;
 
     @Override
     public void register() {
