@@ -1,6 +1,6 @@
 # JEIItemElement
 
-JEIItemElement extends `JEIElement`, so that all available `Getters` of `JEISlot` can be used
+JEIItemElement extends `Element`, so that all available `Getters` of `JEISlot` can be used
 
 ## Import
 

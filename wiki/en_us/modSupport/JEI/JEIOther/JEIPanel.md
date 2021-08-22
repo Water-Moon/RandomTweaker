@@ -20,7 +20,7 @@ For examples, please refer to [Custom JEI](https://github.com/ikexing-cn/RandomT
 | recipeCatalysts | [IItemStack[]](https://docs.blamejared.com/1.12/en/Vanilla/Items/IItemStack/) |
 | JEISlots        | [JEISlot[]](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/en_us/modSupport/JEI/JEISlot/JEISlot.md) |
 | JEIRecipes      | [JEIRecipe[]](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/en_us/modSupport/JEI/JEIOther/JEIRecipe.md) |
-| JEIElements     | [JEIElement[]](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/en_us/modSupport/JEI/JEIElement/JEIElement.md) |
+| Elements     | [Element[]](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/en_us/modSupport/JEI/Element/Element.md) |
 
 | Method                                                       | Return | Remark                                                       |
 | :----------------------------------------------------------- | :----- | ------------------------------------------------------------ |
@@ -31,11 +31,11 @@ For examples, please refer to [Custom JEI](https://github.com/ikexing-cn/RandomT
 | setRecipeCatalysts(recipeCatalysts as [IItemStack[]](https://docs.blamejared.com/1.12/en/Vanilla/Items/IItemStack/) | void   | Set all items displayed on the left                          |
 | setJEISlots(JEISlots as [JEISlot[]](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/en_us/modSupport/JEI/JEISlot/JEISlot.md) | void   | As the name implies                                          |
 | setJEIRecipes(JEIRecipes as [JEIRecipe[]](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/en_us/modSupport/JEI/JEIOther/JEIRecipe.md) | void   | As the name implies (Must correspond with the recipe, otherwise any problems will not be given to repair) |
-| setJEIElements(JEIElements as [JEIElement[]](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/en_us/modSupport/JEI/JEIElement/JEIElement.md) | void   | As the name implies                                          |
+| setJEIElements(Elements as [Element[]](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/en_us/modSupport/JEI/Element/Element.md) | void   | As the name implies                                          |
 | addJEISlot(JEIISlot as [JEISlot](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/en_us/modSupport/JEI/JEISlot/JEISlot.md) | void   | As the name implies                                          |
 | addRecipeCatalyst(recipeCatalyst as [IItemStack](https://docs.blamejared.com/1.12/en/Vanilla/Items/IItemStack/) | void   | Add items displayed on the left                              |
 | addJEIRecipe(JEIRecipe as [JEIRecipe](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/en_us/modSupport/JEI/JEIOther/JEIRecipe.md) | void   | As the name implies                                          |
-| addJEIElement(JEIElement as [JEIElement](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/en_us/modSupport/JEI/JEIElement/JEIElement.md) | void   | As the name implies                                          |
+| addJEIElement(Element as [Element](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/en_us/modSupport/JEI/Element/Element.md) | void   | As the name implies                                          |
 | register()                                                   | void   | As the name implies                                          |
 
 | function | Use | Retrun | Description |

@@ -1,9 +1,9 @@
-# JEIElement
+# Element
 
 ## Import
 
 ```zenscript
-import mods.randomtweaker.jei.JEIElement;
+import mods.randomtweaker.jei.Element;
 ```
 
 Elements rendered on the JEI, fluid slots, and item slot boxes are rendered from this

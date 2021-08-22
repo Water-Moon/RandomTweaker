@@ -1,17 +1,17 @@
-package ink.ikx.rt.impl.jei.impl.element;
+package ink.ikx.rt.impl.utils.element;
 
-import ink.ikx.rt.api.mods.jei.interfaces.element.JEIItemElement;
+import ink.ikx.rt.api.internal.utils.element.ItemElement;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 
-public class JEIItemOutputElementImpl extends JEIElementImpl implements JEIItemElement {
+public class ItemOutputElementImpl extends ElementImpl implements ItemElement {
 
     public final int U = 80;
     public final int V = 0;
 
-    public JEIItemOutputElementImpl(int x, int y) {
+    public ItemOutputElementImpl(int x, int y) {
         super(x, y, 27, 26);
     }
 

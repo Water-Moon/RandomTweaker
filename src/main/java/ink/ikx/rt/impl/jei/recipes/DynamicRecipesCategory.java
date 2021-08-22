@@ -2,7 +2,7 @@ package ink.ikx.rt.impl.jei.recipes;
 
 import crafttweaker.CraftTweakerAPI;
 import crafttweaker.api.minecraft.CraftTweakerMC;
-import ink.ikx.rt.api.mods.jei.interfaces.element.JEIElement;
+import ink.ikx.rt.api.internal.utils.element.Element;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEIBackground;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEIPanel;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEITooltip;
@@ -115,8 +115,8 @@ public class DynamicRecipesCategory implements IRecipeCategory<DynamicRecipesWra
         for (JEISlot JEISlot : JEISlotList) {
             JEISlot.Render(minecraft);
         }
-        for (JEIElement JEIElement : JEI_PANEL.getJEIElements()) {
-            JEIElement.Render(minecraft);
+        for (Element Element : JEI_PANEL.getJEIElements()) {
+            Element.Render(minecraft);
         }
     }
 }

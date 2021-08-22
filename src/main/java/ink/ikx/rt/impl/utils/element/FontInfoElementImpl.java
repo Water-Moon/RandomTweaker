@@ -1,15 +1,15 @@
-package ink.ikx.rt.impl.jei.impl.element;
+package ink.ikx.rt.impl.utils.element;
 
-import ink.ikx.rt.api.mods.jei.interfaces.element.JEIFontInfoElement;
+import ink.ikx.rt.api.internal.utils.element.FontInfoElement;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 
-public class JEIFontInfoElementImpl extends JEIElementImpl implements JEIFontInfoElement {
+public class FontInfoElementImpl extends ElementImpl implements FontInfoElement {
 
     public String info;
     public int color;
 
-    public JEIFontInfoElementImpl(int x, int y, String info, int color, int width, int height) {
+    public FontInfoElementImpl(int x, int y, String info, int color, int width, int height) {
         super(x, y, width, height);
         this.color = color;
         this.info = info;

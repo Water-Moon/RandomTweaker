@@ -4,7 +4,7 @@ import crafttweaker.api.item.IIngredient;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.liquid.ILiquidStack;
 import crafttweaker.api.minecraft.CraftTweakerMC;
-import ink.ikx.rt.api.mods.jei.interfaces.element.JEIElement;
+import ink.ikx.rt.api.internal.utils.element.Element;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEIRecipe;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,8 +62,8 @@ public class DynamicRecipesWrapper implements IRecipeWrapper {
 
     @Override
     public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
-        for (JEIElement JEIElement : JEIRecipe.getJEIElements()) {
-            JEIElement.Render(minecraft);
+        for (Element Element : JEIRecipe.getJEIElements()) {
+            Element.Render(minecraft);
         }
     }
 

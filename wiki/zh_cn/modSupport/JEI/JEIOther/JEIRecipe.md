@@ -15,7 +15,7 @@ import mods.randomtweaker.jei.JEIRecipe
 | uid | string | 创建JEI时填的 UID|
 | inputs | [IIngredient[]](https://docs.blamejared.com/1.12/en/Vanilla/Variable_Types/IIngredient/) | 获取当前配方的全部输入 |
 | outputs | [IIngredient[]](https://docs.blamejared.com/1.12/en/Vanilla/Variable_Types/IIngredient/) | 获取当前配方的全部输出 |
-| JEIElements | [JEIElement[]](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/zh_cn/modSupport/JEI/JEIElement/JEIElement.md) | 获取当前配方的渲染元素 |
+| Elements | [Element[]](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/zh_cn/modSupport/JEI/Element/Element.md) | 获取当前配方的渲染元素 |
 
 | 方法 | 形参 | 返回值| 描述 |
 |:---- | ---- | -----| -----|
@@ -24,8 +24,8 @@ import mods.randomtweaker.jei.JEIRecipe
 |setOutputs | [IIngredient[]](https://docs.blamejared.com/1.12/en/Vanilla/Variable_Types/IIngredient/) | ``this`` | 设置配方的全部输出|
 |addInput | [IIngredient](https://docs.blamejared.com/1.12/en/Vanilla/Variable_Types/IIngredient/) | ``this`` | 添加输入配方|
 |addOutput | [IIngredient](https://docs.blamejared.com/1.12/en/Vanilla/Variable_Types/IIngredient/)  | ``this``| 添加输出配方|
-|addJEIElement | [JEIElement](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/zh_cn/modSupport/JEI/JEIElement/JEIElement.md) | ``this`` | 添加渲染元素 |
-|setJEIElements | [JEIElement[]](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/zh_cn/modSupport/JEI/JEIElement/JEIElement.md) | ``this`` | 直接修改当前配方的渲染元素 |
+|addJEIElement | [Element](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/zh_cn/modSupport/JEI/Element/Element.md) | ``this`` | 添加渲染元素 |
+|setJEIElements | [Element[]](https://github.com/ikexing-cn/RandomTweaker/blob/1.12/wiki/zh_cn/modSupport/JEI/Element/Element.md) | ``this`` | 直接修改当前配方的渲染元素 |
 |onJEITooltip | function(mouseX as int, mouseY as int) | string[] | 为指定的地方添加新的提示, 此函数仅在当前配方调用 (不会覆盖 `Item` 和 `Fluid`) |
 
 ## 例子

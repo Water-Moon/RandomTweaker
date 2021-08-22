@@ -1,9 +1,9 @@
-# JEIElement
+# Element
 
 ## 导包
 
 ```zenscript
-import mods.randomtweaker.jei.JEIElement;
+import mods.randomtweaker.jei.Element;
 ```
 
 渲染在 JEI 上的元素, 流体槽, 物品槽的框都是自此渲染

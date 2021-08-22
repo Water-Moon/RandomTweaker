@@ -1,17 +1,17 @@
-package ink.ikx.rt.impl.jei.impl.element;
+package ink.ikx.rt.impl.utils.element;
 
 import crafttweaker.CraftTweakerAPI;
-import ink.ikx.rt.api.mods.jei.interfaces.element.JEIArrowElement;
+import ink.ikx.rt.api.internal.utils.element.ArrowElement;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 
-public class JEIArrowElementImpl extends JEIElementImpl implements JEIArrowElement {
+public class ArrowElementImpl extends ElementImpl implements ArrowElement {
 
     public int direction;
 
-    public JEIArrowElementImpl(int x, int y, int direction) {
+    public ArrowElementImpl(int x, int y, int direction) {
         super(x, y, 0, 0);
         this.direction = direction;
     }
