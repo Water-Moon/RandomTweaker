@@ -1,8 +1,8 @@
-package ink.ikx.rt.impl.jei.impl.element;
+package ink.ikx.rt.impl.utils.element;
 
-import ink.ikx.rt.api.mods.jei.interfaces.element.JEIElement;
+import ink.ikx.rt.api.internal.utils.element.Element;
 
-public abstract class JEIElementImpl implements JEIElement {
+public abstract class ElementImpl implements Element {
 
     public int x;
     public int y;
@@ -10,7 +10,7 @@ public abstract class JEIElementImpl implements JEIElement {
     public int height;
     public String texture = "randomtweaker:textures/gui/jei/jei_default.png";
 
-    public JEIElementImpl(int x, int y, int width, int height) {
+    public ElementImpl(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
         this.width = width;

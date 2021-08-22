@@ -1,14 +1,14 @@
-package ink.ikx.rt.impl.jei.impl.element;
+package ink.ikx.rt.impl.utils.element;
 
-import ink.ikx.rt.api.mods.jei.interfaces.element.JEIFluidElement;
+import ink.ikx.rt.api.internal.utils.element.FluidElement;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 
-public class JEIFluidElementImpl extends JEIElementImpl implements JEIFluidElement {
+public class FluidElementImpl extends ElementImpl implements FluidElement {
 
-    public JEIFluidElementImpl(int x, int y, int width, int height) {
+    public FluidElementImpl(int x, int y, int width, int height) {
         super(x, y, width, height);
     }
 

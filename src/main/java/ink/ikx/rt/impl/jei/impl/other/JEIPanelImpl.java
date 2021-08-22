@@ -4,7 +4,7 @@ import crafttweaker.CraftTweakerAPI;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.mc1120.brackets.BracketHandlerItem;
 import ink.ikx.rt.RandomTweaker;
-import ink.ikx.rt.api.mods.jei.interfaces.element.JEIElement;
+import ink.ikx.rt.api.internal.utils.element.Element;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEIBackground;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEIPanel;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEITooltip;
@@ -22,7 +22,7 @@ public class JEIPanelImpl implements JEIPanel {
     public JEITooltip JEITooltip = null;
     public String modid = RandomTweaker.MODID;
     public List<JEISlot> JEISlots = new ArrayList<>();
-    public List<JEIElement> JEIElements = new ArrayList<>();
+    public List<Element> Elements = new ArrayList<>();
     public List<IItemStack> recipeCatalysts = new ArrayList<>();
     public IItemStack icon = BracketHandlerItem.getItem("minecraft:bedrock", 0);
 
@@ -67,8 +67,8 @@ public class JEIPanelImpl implements JEIPanel {
     }
 
     @Override
-    public JEIElement[] getJEIElements() {
-        return this.JEIElements.toArray(new JEIElement[0]);
+    public Element[] getJEIElements() {
+        return this.Elements.toArray(new Element[0]);
     }
 
     @Override
@@ -113,8 +113,8 @@ public class JEIPanelImpl implements JEIPanel {
     }
 
     @Override
-    public void setJEIElements(JEIElement[] JEIElements) {
-        this.JEIElements = Arrays.asList(JEIElements);
+    public void setJEIElements(Element[] Elements) {
+        this.Elements = Arrays.asList(Elements);
     }
 
     @Override
@@ -128,8 +128,8 @@ public class JEIPanelImpl implements JEIPanel {
     }
 
     @Override
-    public void addJEIElement(JEIElement JEIElement) {
-        this.JEIElements.add(JEIElement);
+    public void addJEIElement(Element Element) {
+        this.Elements.add(Element);
     }
 
     @Override

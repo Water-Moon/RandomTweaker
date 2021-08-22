@@ -14,9 +14,9 @@ public class JEIItemSlotImpl extends JEISlotImpl implements JEIItemSlot {
     public void Render(Minecraft minecraft) {
         if (this.hasBase) {
             if (this.isInput) {
-                JEIExpansion.createJEIItemInputElement(this.getX(), this.getY()).Render(minecraft);
+                JEIExpansion.createItemInputElement(this.getX(), this.getY()).Render(minecraft);
             } else {
-                JEIExpansion.createJEIItemOutputElement(this.getX(), this.getY()).Render(minecraft);
+                JEIExpansion.createItemOutputElement(this.getX(), this.getY()).Render(minecraft);
             }
         }
     }

@@ -64,7 +64,7 @@ public class JEILiquidSlotImpl extends JEISlotImpl implements JEILiquidSlot {
     @Override
     public void Render(Minecraft minecraft) {
         if (this.hasBase) {
-            JEIExpansion.createJEIFluidElement(this.x, this.y, this.width, this.height).Render(minecraft);
+            JEIExpansion.createFluidElement(this.x, this.y, this.width, this.height).Render(minecraft);
         }
     }
 }

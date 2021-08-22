@@ -1,18 +1,18 @@
-package ink.ikx.rt.impl.jei.impl.element;
+package ink.ikx.rt.impl.utils.element;
 
-import ink.ikx.rt.api.mods.jei.interfaces.element.JEICustomElement;
+import ink.ikx.rt.api.internal.utils.element.CustomElement;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 
-public class JEICustomElementImpl extends JEIElementImpl implements JEICustomElement {
+public class CustomElementImpl extends ElementImpl implements CustomElement {
 
     public int u;
     public int v;
     public String texture;
 
-    public JEICustomElementImpl(int x, int y, int width, int height, int u, int v, String texture) {
+    public CustomElementImpl(int x, int y, int width, int height, int u, int v, String texture) {
         super(x, y, width, height);
         this.u = u;
         this.v = v;

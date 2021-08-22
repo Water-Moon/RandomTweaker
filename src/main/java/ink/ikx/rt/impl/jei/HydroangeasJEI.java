@@ -3,7 +3,7 @@ package ink.ikx.rt.impl.jei;
 import crafttweaker.api.item.IIngredient;
 import crafttweaker.api.minecraft.CraftTweakerMC;
 import ink.ikx.rt.api.mods.jei.JEIExpansion;
-import ink.ikx.rt.api.mods.jei.interfaces.element.JEIManaBarElement;
+import ink.ikx.rt.api.internal.utils.element.ManaBarElement;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEIPanel;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEIRecipe;
 import ink.ikx.rt.impl.botania.module.ModHydroangeas;
@@ -36,8 +36,8 @@ public class HydroangeasJEI {
             FluidStack blockInput = new FluidStack(
                 FluidRegistry.lookupFluidForBlock(handler.getBlockLiquid()), 1000);
 
-            JEIManaBarElement manaBar = JEIExpansion.createJEIManaBarElement(2, 60, handler.getManaGen() * ModHydroangeas.burnTime);
-            // JEIFontInfoElement factorInfo = JEIExpansion.createJEIFontInfoElement(52, 32, "x" + handler.getFluidFactor(), 0x000000, 0, 0);
+            ManaBarElement manaBar = JEIExpansion.createJEIManaBarElement(2, 60, handler.getManaGen() * ModHydroangeas.burnTime);
+            // FontInfoElement factorInfo = JEIExpansion.createJEIFontInfoElement(52, 32, "x" + handler.getFluidFactor(), 0x000000, 0, 0);
             IIngredient iBlockInput = CraftTweakerMC.getIIngredient(blockInput);
 
             JEIRecipe recipe = JEIExpansion.createJEIRecipe("randomtweaker.jei_hydroangeas")

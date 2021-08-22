@@ -1,6 +1,6 @@
 # JEIArrowElement
 
-JEIArrowElement extends from `JEIElement`, so all available `Getters` of `JEISlot` can be used
+JEIArrowElement extends from `Element`, so all available `Getters` of `JEISlot` can be used
 
 ## Import
 

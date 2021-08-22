@@ -1,4 +1,4 @@
-package ink.ikx.rt.api.mods.jei.interfaces.element;
+package ink.ikx.rt.api.internal.utils.element;
 
 import crafttweaker.annotations.ZenRegister;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -6,8 +6,8 @@ import stanhebben.zenscript.annotations.ZenGetter;
 import stanhebben.zenscript.annotations.ZenSetter;
 
 @ZenRegister
-@ZenClass("mods.randomtweaker.jei.JEIManaBarElement")
-public interface JEIManaBarElement extends JEIElement {
+@ZenClass("mods.randomtweaker.ManaBarElement")
+public interface ManaBarElement extends Element {
 
     @ZenGetter("mana")
     int getMana();

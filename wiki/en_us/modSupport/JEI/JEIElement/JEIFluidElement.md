@@ -1,6 +1,6 @@
 # JEIFluidElement
 
-JEIFluidElement extends `JEIElement`, so that all available `Getters` of `JEISlot` can be used
+JEIFluidElement extends `Element`, so that all available `Getters` of `JEISlot` can be used
 
 ## Import
 

@@ -13,7 +13,9 @@ import stanhebben.zenscript.annotations.ZenGetter;
 import stanhebben.zenscript.annotations.ZenSetter;
 
 /**
- * @author youyihj <br /> Mit LICENSE <br /> by -> https://github.com/friendlyhj/ZenUtils/blob/master/src/main/java/youyihj/zenutils/api/cotx/tile/TileData.java
+ * @author youyihj <br />
+ * Mit LICENSE <br />
+ * by -> https://github.com/friendlyhj/ZenUtils/blob/master/src/main/java/youyihj/zenutils/api/cotx/tile/TileData.java
  */
 @ZenRegister
 @ModOnly("contenttweaker")

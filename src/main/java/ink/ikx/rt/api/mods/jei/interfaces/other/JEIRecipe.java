@@ -2,7 +2,7 @@ package ink.ikx.rt.api.mods.jei.interfaces.other;
 
 import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.item.IIngredient;
-import ink.ikx.rt.api.mods.jei.interfaces.element.JEIElement;
+import ink.ikx.rt.api.internal.utils.element.Element;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenGetter;
 import stanhebben.zenscript.annotations.ZenMethod;
@@ -20,11 +20,11 @@ public interface JEIRecipe {
     @ZenGetter("outputs")
     IIngredient[] getOutputs();
 
-    @ZenGetter("JEIElements")
-    JEIElement[] getJEIElements();
+    @ZenGetter("Elements")
+    Element[] getJEIElements();
 
     @ZenMethod
-    JEIRecipe setJEIElements(JEIElement[] JEIElements);
+    JEIRecipe setJEIElements(Element[] Elements);
 
     @ZenMethod
     JEIRecipe setUid(String uid);
@@ -33,7 +33,7 @@ public interface JEIRecipe {
     JEIRecipe onJEITooltip(JEITooltip JEITooltip);
 
     @ZenMethod
-    JEIRecipe addJEIElement(JEIElement JEIElement);
+    JEIRecipe addJEIElement(Element Element);
 
     @ZenMethod
     JEIRecipe setInputs(IIngredient[] inputs);

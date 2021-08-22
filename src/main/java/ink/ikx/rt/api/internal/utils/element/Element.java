@@ -1,4 +1,4 @@
-package ink.ikx.rt.api.mods.jei.interfaces.element;
+package ink.ikx.rt.api.internal.utils.element;
 
 import crafttweaker.annotations.ZenRegister;
 import net.minecraft.client.Minecraft;
@@ -9,8 +9,8 @@ import stanhebben.zenscript.annotations.ZenGetter;
 import stanhebben.zenscript.annotations.ZenSetter;
 
 @ZenRegister
-@ZenClass("mods.randomtweaker.jei.JEIElement")
-public interface JEIElement {
+@ZenClass("mods.randomtweaker.Element")
+public interface Element {
 
     @ZenGetter("u")
     int getU();
