@@ -5,6 +5,7 @@ import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.data.IData;
 import crafttweaker.mc1120.data.NBTConverter;
 import ink.ikx.rt.api.internal.utils.TileData;
+import javax.annotation.Nonnull;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
@@ -13,11 +14,9 @@ import stanhebben.zenscript.annotations.ZenGetter;
 import stanhebben.zenscript.annotations.ZenMethod;
 import stanhebben.zenscript.annotations.ZenSetter;
 
-import javax.annotation.Nonnull;
-
 @ZenRegister
 @ModOnly("contenttweaker")
-@ZenClass("mods.randomtweaker.cote.TileEntityInGame")
+@ZenClass("mods.randomtweaker.cote.MachineTileEntity")
 public class MachineTileEntityContent extends TileEntity implements ITickable {
 
     private String machineName;

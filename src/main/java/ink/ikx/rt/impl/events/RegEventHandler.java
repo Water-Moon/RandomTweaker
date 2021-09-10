@@ -5,17 +5,19 @@ import cn.hutool.core.lang.Pair;
 import com.teamacronymcoders.contenttweaker.ContentTweaker;
 import ink.ikx.rt.RandomTweaker;
 import ink.ikx.rt.api.internal.file.Prop;
+import ink.ikx.rt.api.mods.cote.block.tile.MachineTileEntityContent;
 import ink.ikx.rt.api.mods.cote.flower.JAVATextContent;
-import ink.ikx.rt.api.mods.cote.flower.SubTileEntityInGame;
 import ink.ikx.rt.api.mods.cote.flower.SubTileRepresentation;
 import ink.ikx.rt.impl.config.RTConfig;
 import java.io.File;
 import java.util.Map.Entry;
 import java.util.Objects;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -23,11 +25,17 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import vazkii.botania.api.BotaniaAPIClient;
 
 @EventBusSubscriber
 public class RegEventHandler {
+
+    @SubscribeEvent
+    public static void onBlockRegistry(Register<Block> event) {
+        GameRegistry.registerTileEntity(MachineTileEntityContent.class, new ResourceLocation(RandomTweaker.MODID, "machineTileEntity"));
+    }
 
     @SubscribeEvent
     public static void onItemRegistry(Register<Item> event) {

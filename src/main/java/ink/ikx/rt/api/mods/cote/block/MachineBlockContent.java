@@ -2,16 +2,14 @@ package ink.ikx.rt.api.mods.cote.block;
 
 import com.teamacronymcoders.contenttweaker.modules.vanilla.blocks.BlockContent;
 import ink.ikx.rt.api.mods.cote.block.tile.MachineTileEntityContent;
-import net.minecraft.block.state.IBlockState;
+import javax.annotation.Nullable;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import youyihj.zenutils.api.cotx.annotation.ExpandContentTweakerEntry;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 @ExpandContentTweakerEntry
-public class MachineBlockContent extends BlockContent {
+public class MachineBlockContent extends BlockContent implements ITileEntityProvider {
 
     private final MachineBlockRepresentation representation;
 
@@ -20,15 +18,10 @@ public class MachineBlockContent extends BlockContent {
         this.representation = representation;
     }
 
-    @Override
-    public boolean hasTileEntity(IBlockState state) {
-        return true;
-    }
-
     @Nullable
     @Override
-    public TileEntity createTileEntity(@Nullable World world, @Nonnull IBlockState state) {
-        return hasTileEntity(state) ? new MachineTileEntityContent(representation.machineName) : null;
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
+        return new MachineTileEntityContent(representation.machineName);
     }
 
     @ExpandContentTweakerEntry.RepresentationGetter
