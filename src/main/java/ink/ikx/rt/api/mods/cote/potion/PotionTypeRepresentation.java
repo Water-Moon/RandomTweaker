@@ -3,7 +3,6 @@ package ink.ikx.rt.api.mods.cote.potion;
 import com.teamacronymcoders.contenttweaker.ContentTweaker;
 import crafttweaker.CraftTweakerAPI;
 import crafttweaker.annotations.ModOnly;
-import crafttweaker.annotations.ZenRegister;
 import ink.ikx.rt.RandomTweaker;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionType;
@@ -11,7 +10,6 @@ import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 import stanhebben.zenscript.annotations.ZenProperty;
 
-@ZenRegister
 @ModOnly("contenttweaker")
 @ZenClass("mods.randomtweaker.cote.PotionType")
 public class PotionTypeRepresentation {
@@ -28,6 +26,9 @@ public class PotionTypeRepresentation {
     public PotionTypeRepresentation(String unlocalizedName, PotionRepresentation potion) {
         this.unlocalizedName = unlocalizedName;
         this.potion = potion;
+        if (potion.isInstant()) {
+            this.duration = 0;
+        }
     }
 
     @ZenMethod
@@ -37,7 +38,11 @@ public class PotionTypeRepresentation {
 
     @ZenMethod
     public void setDuration(int duration) {
-        this.duration = duration;
+        if (!potion.isInstant()) {
+            this.duration = duration;
+        } else {
+            this.duration = 0;
+        }
     }
 
     @ZenMethod
@@ -74,8 +79,8 @@ public class PotionTypeRepresentation {
     public void register() {
         if (RandomTweaker.potionTypeMap.get(unlocalizedName) == null) {
             RandomTweaker.potionTypeMap.put(unlocalizedName,
-                new PotionType(ContentTweaker.MOD_ID + "." + this.unlocalizedName,
-                    new PotionEffect(potion.getInternal(), duration, amplifier)).setRegistryName(unlocalizedName));
+                    new PotionType(ContentTweaker.MOD_ID + "." + this.unlocalizedName,
+                            new PotionEffect(potion.getInternal(), duration, amplifier)).setRegistryName(unlocalizedName));
         } else {
             CraftTweakerAPI.logError(" All PotionTypes must be unique. Key: contenttweaker:" + unlocalizedName + " is not.", new UnsupportedOperationException());
         }

@@ -2,7 +2,6 @@ package ink.ikx.rt.api.mods.cote.potion;
 
 import crafttweaker.CraftTweakerAPI;
 import crafttweaker.annotations.ModOnly;
-import crafttweaker.annotations.ZenRegister;
 import ink.ikx.rt.RandomTweaker;
 import ink.ikx.rt.api.mods.cote.function.PotionIsReady;
 import ink.ikx.rt.api.mods.cote.function.PotionPerformEffect;
@@ -11,7 +10,6 @@ import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 import stanhebben.zenscript.annotations.ZenProperty;
 
-@ZenRegister
 @ModOnly("contenttweaker")
 @ZenClass("mods.randomtweaker.cote.Potion")
 public class PotionRepresentation {
@@ -36,6 +34,8 @@ public class PotionRepresentation {
     public PotionPerformEffect performEffect = null;
     @ZenProperty
     public PotionIsReady isReady = null;
+    @ZenProperty
+    public PotionPerformEffect affectEntity = null;
 
     public PotionRepresentation(String unlocalizedName, int liquidColorIn) {
         this.liquidColorIn = liquidColorIn;

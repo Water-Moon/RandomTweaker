@@ -8,8 +8,10 @@ Enables ContentTweaker to create simple potion effects
 import mods.randomtweaker.cote.Potion;
 ```
 
-| Feild | Type| Description |
-| ---- | :-- | --- |
+## Feild
+
+| Feild | Type | Description |
+| :---- | :---- | :---- |
 | unlocalizedName | string | Unlocalized name |
 | liquidColorIn | int | Color of potion |
 | badEffectIn | bool | Is the potion giving a debuff |
@@ -18,8 +20,16 @@ import mods.randomtweaker.cote.Potion;
 | shouldRender | bool | Whether to render in the backpack |
 | shouldRenderHUD | bool | Whether to render in the HUD (in the upper right corner) |
 
-Texture location : `"contenttweaker:textures/gui/unlocalizedName.png"`  
-**The texture must be 18 * 18 pixels size**  
+## Methods
+
+| Method | Description |
+| :---- | :---- |
+| register() | Register this potion |
+
+Texture location : `contenttweaker:textures/gui/unlocalizedName.png`
+
+**The texture must be 18 * 18 pixels size**
+
 ~~Don't fill in unlocalizedName foolishly XD~~
 
 ## Hot reload
@@ -27,7 +37,8 @@ Texture location : `"contenttweaker:textures/gui/unlocalizedName.png"`
 Please install `ZenUtils` Mod
 
 Both [Event hot reload](https://github.com/friendlyhj/ZenUtils/wiki/ReloadEvents)
-and [ContentTweaker function hot reload](https://github.com/friendlyhj/ZenUtils/wiki/LateSetCoTFunction) are provided by this mod
+and [ContentTweaker function hot reload](https://github.com/friendlyhj/ZenUtils/wiki/LateSetCoTFunction)
+are provided by this mod
 
 ```zenscript
 <cotPotion:unlocalizedName>.isReady = function(duration, amplifier){

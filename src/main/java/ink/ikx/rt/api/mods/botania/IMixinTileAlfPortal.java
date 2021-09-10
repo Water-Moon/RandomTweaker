@@ -1,7 +1,6 @@
 package ink.ikx.rt.api.mods.botania;
 
 import crafttweaker.annotations.ModOnly;
-import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.data.IData;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.world.IBlockPos;
@@ -11,9 +10,8 @@ import stanhebben.zenscript.annotations.ZenGetter;
 import stanhebben.zenscript.annotations.ZenMethod;
 import stanhebben.zenscript.annotations.ZenSetter;
 
-@ZenRegister
 @ModOnly("botania")
-@ZenClass("mods.randomtweaker.BotaniaTileInGame")
+@ZenClass("mods.randomtweaker.AlfPortalTileInGame")
 public interface IMixinTileAlfPortal {
 
     @ZenMethod

@@ -4,6 +4,7 @@ import com.teamacronymcoders.contenttweaker.api.ctobjects.entity.EntityHelper;
 import com.teamacronymcoders.contenttweaker.api.ctobjects.entity.player.CTPlayer;
 import com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Hand;
 import crafttweaker.api.minecraft.CraftTweakerMC;
+import crafttweaker.api.world.IBlockPos;
 import ink.ikx.rt.api.mods.cote.flower.SubTileEntityInGame;
 import ink.ikx.rt.api.mods.cote.flower.SubTileRepresentation;
 import java.util.Objects;
@@ -21,7 +22,6 @@ import vazkii.botania.api.subtile.SubTileFunctional;
 
 public class SubTileFunctionalContent extends SubTileFunctional implements SubTileEntityInGame {
 
-    public String name;
     public final SubTileRepresentation subtile;
 
     public SubTileFunctionalContent(SubTileRepresentation subtile) {
@@ -43,7 +43,7 @@ public class SubTileFunctionalContent extends SubTileFunctional implements SubTi
 
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-        return !Objects.nonNull(subtile.onBlockActivated) || subtile.onBlockActivated.call(CraftTweakerMC.getIWorld(world), CraftTweakerMC.getIBlockPos(pos), CraftTweakerMC.getBlockState(state), new CTPlayer(player), Hand.of(hand), CraftTweakerMC.getIFacing(side), hitX, hitY, hitZ);
+        return Objects.nonNull(subtile.onBlockActivated) && subtile.onBlockActivated.call(CraftTweakerMC.getIWorld(world), CraftTweakerMC.getIBlockPos(pos), CraftTweakerMC.getBlockState(state), new CTPlayer(player), Hand.of(hand), CraftTweakerMC.getIFacing(side), hitX, hitY, hitZ);
     }
 
     @Override
@@ -84,9 +84,16 @@ public class SubTileFunctionalContent extends SubTileFunctional implements SubTi
     }
 
     @Override
+    public void onUpdate() {
+        super.onUpdate();
+        if(Objects.nonNull(subtile.onUpdate)) {
+            subtile.onUpdate.call(this, CraftTweakerMC.getIWorld(this.getWorld()), CraftTweakerMC.getIBlockPos(this.getPos()));
+        }
+    }
+
+    @Override
     public void readFromPacketNBT(NBTTagCompound compound) {
         customData.readFromNBT(compound.getCompoundTag(TAG_CUSTOM_DATA));
-        this.name = compound.getString(TAG_NAME);
         super.readFromPacketNBT(compound);
     }
 
@@ -95,7 +102,6 @@ public class SubTileFunctionalContent extends SubTileFunctional implements SubTi
         if (!compound.hasKey(TAG_CUSTOM_DATA)) {
             compound.setTag(TAG_CUSTOM_DATA, new NBTTagCompound());
         }
-        customData.writeToNBT(compound.getCompoundTag(TAG_NAME));
         customData.writeToNBT(compound.getCompoundTag(TAG_CUSTOM_DATA));
         super.writeToPacketNBT(compound);
     }
@@ -136,18 +142,13 @@ public class SubTileFunctionalContent extends SubTileFunctional implements SubTi
     }
 
     @Override
-    public void onUpdate() {
-        super.onUpdate();
-    }
-
-    @Override
     public boolean isValidBinding() {
         return super.isValidBinding();
     }
 
     @Override
-    public BlockPos getBinding() {
-        return super.getBinding();
+    public IBlockPos getBindingForCrT() {
+        return CraftTweakerMC.getIBlockPos(super.getBinding());
     }
 
     @Override
