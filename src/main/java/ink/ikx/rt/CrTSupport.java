@@ -35,8 +35,20 @@ import ink.ikx.rt.api.mods.cote.flower.functional.SubTileFunctionalRepresentatio
 import ink.ikx.rt.api.mods.cote.flower.generating.SubTileGeneratingRepresentation;
 import ink.ikx.rt.api.mods.cote.function.PotionIsReady;
 import ink.ikx.rt.api.mods.cote.function.PotionPerformEffect;
-import ink.ikx.rt.api.mods.cote.function.botania.*;
-import ink.ikx.rt.api.mods.cote.function.mana.*;
+import ink.ikx.rt.api.mods.cote.function.botania.BlockActivated;
+import ink.ikx.rt.api.mods.cote.function.botania.BlockAdded;
+import ink.ikx.rt.api.mods.cote.function.botania.BlockHarvested;
+import ink.ikx.rt.api.mods.cote.function.botania.BlockPlacedBy;
+import ink.ikx.rt.api.mods.cote.function.botania.CanGeneratePassively;
+import ink.ikx.rt.api.mods.cote.function.botania.CanSelect;
+import ink.ikx.rt.api.mods.cote.function.botania.PopulateDropStackNBTs;
+import ink.ikx.rt.api.mods.cote.function.botania.Update;
+import ink.ikx.rt.api.mods.cote.function.mana.BaubleFunction;
+import ink.ikx.rt.api.mods.cote.function.mana.BaubleFunctionWithReturn;
+import ink.ikx.rt.api.mods.cote.function.mana.BaubleRender;
+import ink.ikx.rt.api.mods.cote.function.mana.IsUsesMana;
+import ink.ikx.rt.api.mods.cote.function.mana.ManaWithItem;
+import ink.ikx.rt.api.mods.cote.function.mana.ManaWithPool;
 import ink.ikx.rt.api.mods.cote.mana.bauble.ManaBaubleRepresentation;
 import ink.ikx.rt.api.mods.cote.mana.item.ManaItemRepresentation;
 import ink.ikx.rt.api.mods.cote.mana.item.tool.ManaUsingItemRepresentation;
@@ -44,7 +56,6 @@ import ink.ikx.rt.api.mods.cote.potion.PotionRepresentation;
 import ink.ikx.rt.api.mods.cote.potion.PotionTypeRepresentation;
 import ink.ikx.rt.api.mods.jei.BracketHandlerJEI;
 import ink.ikx.rt.api.mods.jei.JEIExpansion;
-import ink.ikx.rt.api.mods.jei.interfaces.element.*;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEIBackground;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEIPanel;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEIRecipe;
@@ -53,7 +64,13 @@ import ink.ikx.rt.api.mods.jei.interfaces.slots.JEIItemSlot;
 import ink.ikx.rt.api.mods.jei.interfaces.slots.JEILiquidSlot;
 import ink.ikx.rt.api.mods.jei.interfaces.slots.JEISlot;
 import ink.ikx.rt.api.mods.naturesaura.AuraChunk;
-import ink.ikx.rt.api.mods.player.*;
+import ink.ikx.rt.api.mods.player.IPlayerExpansionAS;
+import ink.ikx.rt.api.mods.player.IPlayerExpansionFTBU;
+import ink.ikx.rt.api.mods.player.IPlayerExpansionMO;
+import ink.ikx.rt.api.mods.player.IPlayerExpansionTAN;
+import ink.ikx.rt.api.mods.player.IPlayerExpansionTBL;
+import ink.ikx.rt.api.mods.player.IPlayerExpansionTC;
+import ink.ikx.rt.api.mods.player.IPlayerExpansionTF;
 import ink.ikx.rt.api.mods.render.BaubleRenderHelper;
 import ink.ikx.rt.api.mods.render.BotaniaFXHelper;
 import ink.ikx.rt.api.mods.tbl.BLCircleGem;
@@ -62,12 +79,19 @@ import ink.ikx.rt.impl.config.RTConfig;
 import ink.ikx.rt.impl.events.DreamJournal;
 import ink.ikx.rt.impl.events.ManaBaubleEvent;
 import ink.ikx.rt.impl.utils.annotation.RTRegisterClass;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Loader;
-
+import ink.ikx.rt.impl.utils.element.ArrowElementImpl;
+import ink.ikx.rt.impl.utils.element.CustomElementImpl;
+import ink.ikx.rt.impl.utils.element.ElementImpl;
+import ink.ikx.rt.impl.utils.element.FluidElementImpl;
+import ink.ikx.rt.impl.utils.element.FontInfoElementImpl;
+import ink.ikx.rt.impl.utils.element.ItemInputElementImpl;
+import ink.ikx.rt.impl.utils.element.ItemOutputElementImpl;
+import ink.ikx.rt.impl.utils.element.ManaBarElementImpl;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 
 public class CrTSupport {
 
@@ -111,33 +135,34 @@ public class CrTSupport {
                 IsUsesMana.class,
                 ManaWithItem.class,
                 ManaWithPool.class,
-                PotionPerformEffect.class,
-                PotionIsReady.class,
-                ManaBaubleRepresentation.class,
-                ManaUsingItemRepresentation.class,
-                ManaItemRepresentation.class,
-                PotionRepresentation.class,
-                PotionTypeRepresentation.class,
-                ExpandVanillaFactory.class,
-                ExpandVanillaFactoryBotania.class,
-                ExpandVanillaFactoryThaumcraft.class,
-                JEIArrowElement.class,
-                JEICustomElement.class,
-                JEIElement.class,
-                JEIFluidElement.class,
-                JEIFontInfoElement.class,
-                JEIItemElement.class,
-                JEIManaBarElement.class,
-                JEIBackground.class,
-                JEIPanel.class,
-                JEIRecipe.class,
-                JEITooltip.class,
-                JEIItemSlot.class,
-                JEILiquidSlot.class,
-                JEISlot.class,
-                BracketHandlerJEI.class,
-                JEIExpansion.class,
-                AuraChunk.class,
+            PotionPerformEffect.class,
+            PotionIsReady.class,
+            ManaBaubleRepresentation.class,
+            ManaUsingItemRepresentation.class,
+            ManaItemRepresentation.class,
+            PotionRepresentation.class,
+            PotionTypeRepresentation.class,
+            ExpandVanillaFactory.class,
+            ExpandVanillaFactoryBotania.class,
+            ExpandVanillaFactoryThaumcraft.class,
+            ArrowElementImpl.class,
+            CustomElementImpl.class,
+            ElementImpl.class,
+            FluidElementImpl.class,
+            FontInfoElementImpl.class,
+            ItemInputElementImpl.class,
+            ItemOutputElementImpl.class,
+            ManaBarElementImpl.class,
+            JEIBackground.class,
+            JEIPanel.class,
+            JEIRecipe.class,
+            JEITooltip.class,
+            JEIItemSlot.class,
+            JEILiquidSlot.class,
+            JEISlot.class,
+            BracketHandlerJEI.class,
+            JEIExpansion.class,
+            AuraChunk.class,
                 IPlayerExpansionAS.class,
                 IPlayerExpansionFTBU.class,
                 IPlayerExpansionMO.class,

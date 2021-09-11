@@ -12,17 +12,29 @@ import stanhebben.zenscript.annotations.ZenProperty;
 
 @ZenRegister
 @ModOnly("contenttweaker")
-@ZenClass("mods.randomtweaker.cote.Block")
+@ZenClass("mods.randomtweaker.cote.MachineBlock")
 public class MachineBlockRepresentation extends BlockRepresentation {
 
     @ZenProperty
     public String machineName;
+    @ZenProperty
+    public boolean hasGUI = true;
 
     public MachineBlockRepresentation(String unlocalizedName, String machineName, IBlockMaterialDefinition material) {
         super();
         this.setUnlocalizedName(unlocalizedName);
         this.setBlockMaterial(material);
         this.setMachineName(machineName);
+    }
+
+    @ZenMethod
+    public boolean isHasGUI() {
+        return hasGUI;
+    }
+
+    @ZenMethod
+    public void setHasGUI(boolean hasGUI) {
+        this.hasGUI = hasGUI;
     }
 
     @ZenMethod
