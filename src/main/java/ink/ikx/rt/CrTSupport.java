@@ -14,6 +14,13 @@ import ink.ikx.rt.api.internal.item.ManaBauble;
 import ink.ikx.rt.api.internal.item.ManaItem;
 import ink.ikx.rt.api.internal.player.IPlayerExpansionSanity;
 import ink.ikx.rt.api.internal.utils.TileData;
+import ink.ikx.rt.api.internal.utils.element.ArrowElement;
+import ink.ikx.rt.api.internal.utils.element.CustomElement;
+import ink.ikx.rt.api.internal.utils.element.Element;
+import ink.ikx.rt.api.internal.utils.element.FluidElement;
+import ink.ikx.rt.api.internal.utils.element.FontInfoElement;
+import ink.ikx.rt.api.internal.utils.element.ItemElement;
+import ink.ikx.rt.api.internal.utils.element.ManaBarElement;
 import ink.ikx.rt.api.internal.world.IBlockPosExpansion;
 import ink.ikx.rt.api.mods.botania.AlfPortalTileInGame;
 import ink.ikx.rt.api.mods.botania.Hydroangeas;
@@ -79,14 +86,6 @@ import ink.ikx.rt.impl.config.RTConfig;
 import ink.ikx.rt.impl.events.DreamJournal;
 import ink.ikx.rt.impl.events.ManaBaubleEvent;
 import ink.ikx.rt.impl.utils.annotation.RTRegisterClass;
-import ink.ikx.rt.impl.utils.element.ArrowElementImpl;
-import ink.ikx.rt.impl.utils.element.CustomElementImpl;
-import ink.ikx.rt.impl.utils.element.ElementImpl;
-import ink.ikx.rt.impl.utils.element.FluidElementImpl;
-import ink.ikx.rt.impl.utils.element.FontInfoElementImpl;
-import ink.ikx.rt.impl.utils.element.ItemInputElementImpl;
-import ink.ikx.rt.impl.utils.element.ItemOutputElementImpl;
-import ink.ikx.rt.impl.utils.element.ManaBarElementImpl;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -145,14 +144,13 @@ public class CrTSupport {
             ExpandVanillaFactory.class,
             ExpandVanillaFactoryBotania.class,
             ExpandVanillaFactoryThaumcraft.class,
-            ArrowElementImpl.class,
-            CustomElementImpl.class,
-            ElementImpl.class,
-            FluidElementImpl.class,
-            FontInfoElementImpl.class,
-            ItemInputElementImpl.class,
-            ItemOutputElementImpl.class,
-            ManaBarElementImpl.class,
+            ArrowElement.class,
+            CustomElement.class,
+            Element.class,
+            FluidElement.class,
+            FontInfoElement.class,
+            ItemElement.class,
+            ManaBarElement.class,
             JEIBackground.class,
             JEIPanel.class,
             JEIRecipe.class,
