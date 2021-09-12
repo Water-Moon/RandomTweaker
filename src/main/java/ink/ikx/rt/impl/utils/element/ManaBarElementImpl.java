@@ -1,12 +1,12 @@
-package ink.ikx.rt.impl.jei.impl.element;
+package ink.ikx.rt.impl.utils.element;
 
-import ink.ikx.rt.api.mods.jei.interfaces.element.JEIManaBarElement;
+import ink.ikx.rt.api.internal.utils.element.ManaBarElement;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import vazkii.botania.client.core.handler.HUDHandler;
 import vazkii.botania.common.block.tile.mana.TilePool;
 
-public class JEIManaBarElementImpl extends JEIElementImpl implements JEIManaBarElement {
+public class ManaBarElementImpl extends ElementImpl implements ManaBarElement {
 
     public int mode;
     public int mana;
@@ -14,13 +14,13 @@ public class JEIManaBarElementImpl extends JEIElementImpl implements JEIManaBarE
     public int multiplesLog = 0;
     private final int COLOR = 0x0000FF;
 
-    public JEIManaBarElementImpl(int x, int y, int mana, int mode) {
+    public ManaBarElementImpl(int x, int y, int mana, int mode) {
         super(x, y, 0, 0);
         this.mana = mana;
         this.mode = mode;
     }
 
-    public JEIManaBarElementImpl(int x, int y, int mana) {
+    public ManaBarElementImpl(int x, int y, int mana) {
         this(x, y, mana, 1);
     }
 

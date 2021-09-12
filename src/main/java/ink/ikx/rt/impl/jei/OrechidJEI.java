@@ -21,7 +21,7 @@ public class OrechidJEI {
     public static void init() {
         JEIPanel JH = JEIExpansion.createJEIPanel("randomtweaker.jei_orechid", "randomtweaker.jei_orechid");
         JH.setJEIBackGroup(JEIExpansion.createJEIBackground(148, 45));
-        JH.addJEIElement(JEIExpansion.createJEICustomElement(48, 0, 64, 46, 0, 0, "botania:textures/gui/pureDaisyOverlay.png"));
+        JH.addJEIElement(JEIExpansion.createCustomElement(48, 0, 64, 46, 0, 0, "botania:textures/gui/pureDaisyOverlay.png"));
         JH.setIcon(CraftTweakerMC.getIItemStack(ItemBlockSpecialFlower.ofType(LibBlockNames.SUBTILE_ORECHID)));
         JH.addRecipeCatalyst(CraftTweakerMC.getIItemStack(ItemBlockSpecialFlower.ofType(LibBlockNames.SUBTILE_ORECHID)));
         JH.addRecipeCatalyst(CraftTweakerMC.getIItemStack(ItemBlockSpecialFlower.ofType(new ItemStack(ModBlocks.floatingSpecialFlower), LibBlockNames.SUBTILE_ORECHID)));

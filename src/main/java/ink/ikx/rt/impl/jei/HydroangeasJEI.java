@@ -1,16 +1,15 @@
 package ink.ikx.rt.impl.jei;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import crafttweaker.api.item.IIngredient;
 import crafttweaker.api.minecraft.CraftTweakerMC;
+import ink.ikx.rt.api.internal.utils.element.ManaBarElement;
 import ink.ikx.rt.api.mods.jei.JEIExpansion;
-import ink.ikx.rt.api.mods.jei.interfaces.element.JEIManaBarElement;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEIPanel;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEIRecipe;
 import ink.ikx.rt.api.mods.jei.interfaces.other.JEITooltip;
 import ink.ikx.rt.impl.botania.module.ModHydroangeas;
+import java.util.ArrayList;
+import java.util.List;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -41,14 +40,14 @@ public class HydroangeasJEI {
                 FluidRegistry.lookupFluidForBlock(handler.getBlockLiquid()), 1000);
 
             int mana = handler.getManaGen() * ModHydroangeas.burnTime;
-            JEIManaBarElement manaBar = JEIExpansion.createJEIManaBarElement(2, 60, mana, 1);
+            ManaBarElement manaBar = JEIExpansion.createManaBarElement(2, 60, mana, 1);
             JEITooltip tooltip = new JEITooltip() {
                 @Override
                 public String[] handler(int mouseX, int mouseY) {
                     List<String> text = new ArrayList<>();
                     if (
                         mouseX >= 2 && mouseX <= 103 &&
-                        mouseY >= 60 && mouseY <= 64
+                            mouseY >= 60 && mouseY <= 64
                     ) {
                         text.add("mana: " + mana);
                     }
