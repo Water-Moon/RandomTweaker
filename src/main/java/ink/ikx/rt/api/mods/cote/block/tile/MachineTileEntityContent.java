@@ -20,10 +20,8 @@ import stanhebben.zenscript.annotations.ZenSetter;
 public class MachineTileEntityContent extends TileEntity implements ITickable {
 
     private String machineName;
-    private final TileData customData = new TileData();
 
     public static final String TAG_CUSTOM_NAME = "CustomName";
-    public static final String TAG_CUSTOM_DATA = "CustomData";
 
     public MachineTileEntityContent(String machineName) {
         this.machineName = machineName;
@@ -36,7 +34,6 @@ public class MachineTileEntityContent extends TileEntity implements ITickable {
 
     @Override
     public void readFromNBT(@Nonnull NBTTagCompound compound) {
-        customData.readFromNBT(compound.getCompoundTag(TAG_CUSTOM_DATA));
         this.machineName = compound.getString(TAG_CUSTOM_NAME);
         super.readFromNBT(compound);
     }
@@ -45,27 +42,23 @@ public class MachineTileEntityContent extends TileEntity implements ITickable {
     @Override
     public NBTTagCompound writeToNBT(@Nonnull NBTTagCompound compound) {
         compound.setString(TAG_CUSTOM_NAME, machineName);
-        if (!compound.hasKey(TAG_CUSTOM_DATA)) {
-            compound.setTag(TAG_CUSTOM_DATA, new NBTTagCompound());
-        }
-        customData.writeToNBT(compound.getCompoundTag(TAG_CUSTOM_DATA));
         return super.writeToNBT(compound);
     }
 
     @ZenGetter("data")
     public IData getCustomData() {
-        return customData.getData();
+        return NBTConverter.from(this.getTileData(), false);
     }
 
     @ZenSetter("data")
     public void setCustomData(IData data) {
-        customData.readFromNBT((NBTTagCompound) NBTConverter.from(data));
+        TileData.checkDataMap(data);
+        this.getTileData().merge((NBTTagCompound) NBTConverter.from(data));
         this.markDirty();
     }
 
     @ZenMethod
     public void updateCustomData(IData data) {
-        TileData.checkDataMap(data);
-        setCustomData(getCustomData().add(data));
+        setCustomData(this.getCustomData().add(data));
     }
 }
