@@ -18,7 +18,7 @@ public class MachineBlockRepresentation extends BlockRepresentation {
     @ZenProperty
     public String machineName;
     @ZenProperty
-    public boolean hasGUI = true;
+    public boolean hasGui = true;
 
     public MachineBlockRepresentation(String unlocalizedName, String machineName, IBlockMaterialDefinition material) {
         super();
@@ -28,13 +28,13 @@ public class MachineBlockRepresentation extends BlockRepresentation {
     }
 
     @ZenMethod
-    public boolean isHasGUI() {
-        return hasGUI;
+    public boolean isHasGui() {
+        return hasGui;
     }
 
     @ZenMethod
-    public void setHasGUI(boolean hasGUI) {
-        this.hasGUI = hasGUI;
+    public void setHasGui(boolean hasGui) {
+        this.hasGui = hasGui;
     }
 
     @ZenMethod

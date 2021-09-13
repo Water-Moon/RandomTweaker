@@ -19,6 +19,7 @@ import ink.ikx.rt.impl.config.RTConfig;
 import ink.ikx.rt.impl.item.SanityGem;
 import ink.ikx.rt.impl.jei.HydroangeasJEI;
 import ink.ikx.rt.impl.jei.OrechidJEI;
+import ink.ikx.rt.impl.network.NetWorkRegistryHandler;
 import ink.ikx.rt.impl.proxy.IProxy;
 import ink.ikx.rt.impl.utils.ItemDs;
 import java.io.IOException;
@@ -81,6 +82,7 @@ public class RandomTweaker {
     public void onPreInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         PlayerSanityNetWork.register();
+        NetWorkRegistryHandler.register();
         PlayerSanityCapabilityHandler.register();
         if (Loader.isModLoaded("botania")
                 && RTConfig.Botania.OrechidHasDefault
